@@ -40,6 +40,12 @@ var Person = /** @class */ (function () {
 }());
 function createPerson(option) {
     var newPerson = { firstName: "Bill", lastName: "Moore", age: 27, occupation: "Lawyer" };
+    if (option.firstName) {
+        newPerson.firstName = option.firstName;
+    }
+    if (option.lastName) {
+        newPerson.lastName = option.lastName;
+    }
     if (option.age) {
         newPerson.age = option.age;
     }
@@ -79,4 +85,4 @@ document.getElementById("div1").innerHTML = showInfo(user1);
 // document.getElementById("div1").innerHTML = showCerts(user1);
 // console.log(user1.certifications[1]);
 document.getElementById("div2").innerHTML = showInfo(user2);
-document.getElementById("div3").innerHTML = "<br>" + user3.occupation;
+document.getElementById("div3").innerHTML = "<br>" + user3.lastName + " " + user3.occupation;

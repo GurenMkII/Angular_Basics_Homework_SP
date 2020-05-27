@@ -67,6 +67,12 @@ function sayHello(person: string): string {
 
     function createPerson(option: PersonOptions): {firstName: string, lastName: string, age: number, occupation: string}{
         let newPerson = {firstName: "Bill", lastName: "Moore", age: 27, occupation: "Lawyer"};
+        if(option.firstName){
+            newPerson.firstName = option.firstName;
+        }
+        if(option.lastName){
+            newPerson.lastName = option.lastName;
+        }
         if(option.age){
             newPerson.age = option.age;
         }
@@ -113,7 +119,7 @@ function sayHello(person: string): string {
     
     document.getElementById("div2").innerHTML = showInfo(user2);
     
-    document.getElementById("div3").innerHTML = "<br>"+user3.occupation;
+    document.getElementById("div3").innerHTML = "<br>"+user3.lastName+" "+user3.occupation;
 
 
 
