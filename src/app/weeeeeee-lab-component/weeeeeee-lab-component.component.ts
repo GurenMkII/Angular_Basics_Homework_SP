@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkService } from '../work.service';
+import { Person } from '../person';
 
 @Component({
   selector: 'app-weeeeeee-lab-component',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeeeeeeeLabComponentComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  personFirstName: string;
+  personLastName: string;
+  
+  constructor(private workService: WorkService) {
+    
   }
+  
+  ngOnInit(): void {
+    this.workService.getPerson().subscribe((item)=>{
+      this.personFirstName = item.getFirstName();
+    });
+    this.workService.getPerson().subscribe((item)=>{
+      this.personLastName = item.getLastName();
+    });
+    
+  }
+  
+  
 
 }
